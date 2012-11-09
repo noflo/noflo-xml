@@ -3,4 +3,4 @@ XML components for NoFlo [![Build Status](https://secure.travis-ci.org/bergie/no
 
 This module provides [NoFlo](http://noflojs.org/) flow-based programming framework components for dealing with XML:
 
-* ParseXml: Parses XML strings to JavaScript objects
+* _ParseXml_: Parses XML strings to JavaScript objects
