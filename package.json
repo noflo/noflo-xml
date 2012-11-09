@@ -12,7 +12,7 @@
     "node": ">=0.6.0"
   },
   "dependencies": {
-    "noflo": "0.1.x",
+    "noflo": "0.2.x",
     "xml2js": "0.2.x"
   },
   "devDependencies": {
