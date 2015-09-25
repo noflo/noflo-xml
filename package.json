@@ -1,28 +1,33 @@
 {
   "name": "noflo-xml",
   "description": "XML components for the NoFlo flow-based programming environment",
-  "keywords": ["noflo", "xml"],
+  "keywords": [
+    "noflo",
+    "xml"
+  ],
   "author": "Henri Bergius <henri.bergius@iki.fi>",
   "version": "0.0.3",
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/bergie/noflo/raw/master/LICENSE"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/bergie/noflo/raw/master/LICENSE"
+    }
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/noflo/noflo-xml.git"
+    "type": "git",
+    "url": "https://github.com/noflo/noflo-xml.git"
   },
   "engines": {
     "node": ">=0.6.0"
   },
   "dependencies": {
-    "noflo": "0.5.x",
-    "xml2js": "0.2.x"
+    "noflo": "0.5.13",
+    "xml2js": "0.2.8"
   },
   "devDependencies": {
-    "nodeunit": ">=0.6.0",
-    "coffeelint": "*",
-    "coffee-script": "1.4.x"
+    "nodeunit": "0.9.1",
+    "coffeelint": "1.12.1",
+    "coffee-script": "1.4.0"
   },
   "noflo": {
     "components": {
