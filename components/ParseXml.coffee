@@ -4,6 +4,7 @@ xml2js = require "xml2js"
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'Convert XML into a JavaScript object'
+  c.icon = 'code'
   c.inPorts.add 'in',
     datatype: 'string'
   c.inPorts.add 'options',
