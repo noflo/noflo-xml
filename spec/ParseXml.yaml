@@ -8,7 +8,7 @@ fixture:
   INPORT=c.IN:IN
   OUTPORT=r.OUT:OUT
 
-  c(xml/ParseXml) HASH -> IN r(core/Repeat)
+  c(xml/ParseXml) OUT -> IN r(core/Repeat)
 
 cases:
 -
