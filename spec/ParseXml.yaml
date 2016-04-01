@@ -1,0 +1,23 @@
+topic: "xml/ParseXml"
+name: "XML Parsing"
+fixture:
+ type: 'fbp'
+ data: |
+  # @runtime noflo-nodejs
+
+  INPORT=c.IN:IN
+  OUTPORT=r.OUT:OUT
+
+  c(xml/ParseXml) HASH -> IN r(core/Repeat)
+
+cases:
+-
+  name: 'parsing a simple XML string'
+  assertion: 'should return the XML converted to JavaScript object'
+  inputs:
+    in: '<foo><bar>Baz</bar></foo>'
+  expect:
+    out:
+      equals:
+        foo:
+          bar: 'Baz'
