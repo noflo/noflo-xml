@@ -1,40 +1,31 @@
 noflo = require "noflo"
 xml2js = require "xml2js"
 
-class ParseXml extends noflo.Component
-  constructor: ->
-    @options = # defaults recommended by xml2js docs
+exports.getComponent = ->
+  c = new noflo.Component
+  c.description = 'Convert XML into a JavaScript object'
+  c.icon = 'code'
+  c.inPorts.add 'in',
+    datatype: 'string'
+  c.inPorts.add 'options',
+    datatype: 'object'
+    control: true
+    default:
       normalize: false
       trim: false
       explicitRoot: true
+      explicitArray: false
+  c.outPorts.add 'out',
+    datatype: 'object'
+  c.outPorts.add 'error',
+    datatype: 'object'
 
-    @inPorts =
-      in: new noflo.Port()
-      options: new noflo.Port()
-    @outPorts =
-      out: new noflo.Port()
+  c.process (input, output) ->
+    return unless input.has 'options', 'in'
+    [options, data] = input.get 'options', 'in'
+    return unless data.type is 'data'
 
-    xml = ""
-    @inPorts.in.on "data", (data) ->
-      xml += data
-    @inPorts.in.on "disconnect", =>
-      @parseXml xml
-      xml = ""
-
-    @inPorts.options.on "data", (data) =>
-      @setOptions data
-
-  setOptions: (options) ->
-    throw new Error "Options is not an object" unless typeof options is "object"
-    for own key, value of options
-      @options[key] = value
-
-  parseXml: (xml) ->
-    target = @outPorts.out
-    parser = new xml2js.Parser(@options)
-    parser.on "end", (parsed) ->
-      target.send parsed
-      target.disconnect()
-    parser.parseString xml
-
-exports.getComponent = -> new ParseXml
+    xml2js.parseString data.data, options.data, (err, parsed) ->
+      return output.sendDone err if err
+      output.sendDone
+        out: parsed

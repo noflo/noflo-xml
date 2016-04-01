@@ -7,12 +7,7 @@
   ],
   "author": "Henri Bergius <henri.bergius@iki.fi>",
   "version": "0.0.3",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/bergie/noflo/raw/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/noflo/noflo-xml.git"
@@ -25,9 +20,16 @@
     "xml2js": "0.4.16"
   },
   "devDependencies": {
-    "nodeunit": "0.9.1",
+    "chai": "^3.5.0",
+    "coffee-script": "1.10.0",
     "coffeelint": "1.15.0",
-    "coffee-script": "1.10.0"
+    "fbp-spec": "^0.1.3",
+    "grunt": "^0.4.5",
+    "grunt-coffeelint": "0.0.15",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.4.5",
+    "noflo-core": "^0.1.14",
+    "noflo-nodejs": "^0.7.0"
   },
   "noflo": {
     "components": {
@@ -35,7 +37,6 @@
     }
   },
   "scripts": {
-    "pretest": "./node_modules/.bin/coffeelint -r components",
-    "test": "./node_modules/.bin/nodeunit test"
+    "test": "grunt test"
   }
 }

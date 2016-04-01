@@ -1,8 +1,21 @@
 language: node_js
 node_js:
-  - "0.10"
-
-script: npm test
-
-notifications:
-    irc: "irc.freenode.org#fbp"
+- '4.2'
+before_script:
+- npm install grunt-cli -g
+env:
+- CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: 1DQeSdYZchgOhzznbJBu4KiyZZifmHzfMhJcD818MAE+KHdU0c/dc0Pn9h6Lw89RiOX+X1FYWdOpAVZN4IEk5364Muvhjtsq0+XL+0dZ1fraRxdzAWTQHlSDR1MuTBEZhyftO2Qg/4gWtQridps9zJ82ZUXQzGeV9nGzb8Vd27Y=
+  on:
+    tags: true
+    repo: noflo/noflo-xml
