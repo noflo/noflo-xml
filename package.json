@@ -26,7 +26,7 @@
     "fbp-spec": "^0.1.3",
     "grunt": "^0.4.5",
     "grunt-coffeelint": "~0.0.15",
-    "grunt-mocha-test": "^0.12.7",
+    "grunt-mocha-test": "^0.13.1",
     "mocha": "^2.4.5",
     "noflo-core": "^0.3.0",
     "noflo-nodejs": "^0.7.1"
