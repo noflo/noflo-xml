@@ -21,11 +21,9 @@ exports.getComponent = ->
     datatype: 'object'
 
   c.process (input, output) ->
-    return unless input.has 'options', 'in'
-    [options, data] = input.get 'options', 'in'
-    return unless data.type is 'data'
-
-    xml2js.parseString data.data, options.data, (err, parsed) ->
+    return unless input.hasData 'options', 'in'
+    [options, data] = input.getData 'options', 'in'
+    xml2js.parseString data, options, (err, parsed) ->
       return output.sendDone err if err
       output.sendDone
         out: parsed
