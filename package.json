@@ -22,7 +22,7 @@
   "devDependencies": {
     "chai": "^4.0.0",
     "coffee-script": "^1.12.1",
-    "coffeelint": "^1.16.0",
+    "coffeelint": "^2.0.0",
     "fbp-spec": "^0.2.0",
     "grunt": "^1.0.1",
     "grunt-coffeelint": "^0.0.16",
