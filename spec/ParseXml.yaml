@@ -1,15 +1,5 @@
 topic: "xml/ParseXml"
 name: "XML Parsing"
-fixture:
- type: 'fbp'
- data: |
-  # @runtime noflo-nodejs
-
-  INPORT=c.IN:IN
-  OUTPORT=r.OUT:OUT
-
-  c(xml/ParseXml) OUT -> IN r(core/Repeat)
-
 cases:
 -
   name: 'parsing a simple XML string'
