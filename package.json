@@ -13,30 +13,19 @@
     "url": "https://github.com/noflo/noflo-xml.git"
   },
   "engines": {
-    "node": ">=0.6.0"
+    "node": ">=6"
   },
   "dependencies": {
     "noflo": "0.x >= 0.8",
     "xml2js": "~0.4.16"
   },
   "devDependencies": {
-    "chai": "^4.0.0",
-    "coffee-script": "^1.12.1",
-    "coffeelint": "^1.16.0",
+    "coffeelint": "^2.0.7",
     "fbp-spec": "^0.2.0",
-    "grunt": "^1.0.1",
-    "grunt-coffeelint": "^0.0.16",
-    "grunt-mocha-test": "^0.13.2",
-    "mocha": "^4.0.0",
-    "noflo-core": "^0.4.0",
     "noflo-nodejs": "0.x >= 0.8"
   },
-  "noflo": {
-    "components": {
-      "ParseXml": "./components/ParseXml.coffee"
-    }
-  },
   "scripts": {
-    "test": "grunt test"
+    "pretest": "coffeelint -r components",
+    "test": "fbp-spec --secret test --address ws://localhost:3333 --command 'noflo-nodejs --port 3333 --register=false --secret test' spec/"
   }
 }
