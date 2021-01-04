@@ -26,8 +26,23 @@ exports.getComponent = () => {
   });
 
   return c.process((input, output) => {
-    if (!input.hasData('options', 'in')) { return; }
-    const [options, data] = input.getData('options', 'in');
+    let options = {
+      normalize: false,
+      trim: false,
+      explicitRoot: true,
+      explicitArray: false,
+    };
+    if (input.attached('options').length) {
+      if (!input.hasData('options')) {
+        return;
+      }
+      options = input.getData('options');
+    }
+    if (!input.hasData('in')) {
+      output.done();
+      return;
+    }
+    const data = input.getData('in');
     xml2js.parseString(data, options, (err, parsed) => {
       if (err) {
         output.done(err);

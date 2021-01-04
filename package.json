@@ -28,6 +28,6 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "fbp-spec --secret test --address ws://localhost:3333 --command 'noflo-nodejs --port 3333 --catch-exceptions --capture-output --secret test' spec/"
+    "test": "fbp-spec --secret test --address ws://localhost:3333 --trace --command-timeout 60 --command 'noflo-nodejs --port 3333 --capture-output --secret test --open false' spec/"
   }
 }
