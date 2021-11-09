@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "eslint": "^7.17.0",
-    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.22.1",
     "fbp-spec": "^0.8.0",
     "noflo-nodejs": "^0.15.0"
